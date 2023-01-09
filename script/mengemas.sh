@@ -29,9 +29,9 @@ cd $WORKDIR/rom/$nama_rom
 nama_file=$(basename out/target/product/$perangkat/*.zip)
 tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama_file
 
-unzip -P $one -q ~/.config/1.zip -d ~
+# unzip -P $one -q ~/.config/1.zip -d ~
 file=out/target/product/$perangkat/*.zip
-rsync -vhcP $file -e "ssh -o Compression=no" tiktodz@frs.sourceforge.net:/home/frs/project/customromx00t/$perangkat/
+# rsync -vhcP $file -e "ssh -o Compression=no" tiktodz@frs.sourceforge.net:/home/frs/project/customromx00t/$perangkat/
 maintainer=https://t.me/wzrdgrp
 
 cd $WORKDIR/rom/$nama_rom/out/target/product/$perangkat
@@ -70,7 +70,7 @@ function upload_ccache() {
         tar --use-compress-program="pigz -k -$2 " -cf $1.tar.gz $1
     }
     time compress ccache 1
-    rclone copy --drive-chunk-size 256M --stats 1s ccache.tar.gz mobx:ccache/$perangkat/$nama_rom -P
+    rclone copy --drive-chunk-size 256M --stats 1s ccache.tar.gz d:ccache/$perangkat/$nama_rom -P
     rm -rf ccache.tar.gz
     pesan Mengunggah ccache berhasil...
 }
