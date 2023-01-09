@@ -31,6 +31,7 @@ tautan=https://royal-snowflake.regenerate.workers.dev/$nama_rom/$perangkat/$nama
 
 # unzip -P $one -q ~/.config/1.zip -d ~
 file=out/target/product/$perangkat/*.zip
+rclone copy --drive-chunk-size 256M --stats 1s  $file d: -P
 # rsync -vhcP $file -e "ssh -o Compression=no" tiktodz@frs.sourceforge.net:/home/frs/project/customromx00t/$perangkat/
 maintainer=https://t.me/wzrdgrp
 
